@@ -1,0 +1,8 @@
+name: "staging"
+description: "Production Environment"
+
+components:
+  fyn-schema: v0.0.0
+  fyn-api: v0.0.0
+  fyn-runner: v0.0.0
+  fyn-frontend: v0.0.0
