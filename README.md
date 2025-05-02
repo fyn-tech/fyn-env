@@ -42,19 +42,7 @@ git clone https://github.com/fyn-tech/fyn-env.git
 cd fyn-env
 
 # Setup development environment
-./setup.sh --development
-
-# Setup production environment
-./setup.sh --production
-
-# Setup staging environment
-./setup.sh --staging
-
-# For custom output directory
-./setup.sh --development --output_directory /path/to/custom/directory
-
-# For custom version configuration file
-./setup.sh --development --version_file ./path/to/custom/version.yaml
+./setup.sh --development --version_file ./versions/version.yaml --output_directory /path/to/custom/directory
 ```
 
 ### Environment Configuration
