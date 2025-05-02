@@ -1,4 +1,8 @@
 #!/bin/bash
+# config_generator.sh - Generate configuration files for environment
+
+# Exit on any error
+set -e
 
 # Function to generate configuration files
 generate_config_files() {
@@ -10,8 +14,22 @@ generate_config_files() {
   local frontend_version="$6"
   local description="$7"
 
+  # Ensure output directory exists
+  if [ ! -d "$output_dir" ]; then
+    echo "Creating output directory: $output_dir"
+    mkdir -p "$output_dir" || {
+      echo "Error: Failed to create output directory $output_dir" >&2
+      exit 1
+    }
+  fi
+
+  echo "Generating configuration files for $env_flag environment..."
+
   # Generate shell configuration file
-  cat > "$output_dir/env-config.sh" << EOF
+  config_file="$output_dir/env-config.sh"
+  echo "Creating shell configuration: $config_file"
+  
+  cat > "$config_file" << EOF
 #!/bin/bash
 # Generated environment configuration - $(date)
 # Environment: $env_flag
@@ -24,10 +42,16 @@ export FYN_FRONTEND_VERSION="$frontend_version"
 EOF
 
   # Make it executable
-  chmod +x "$output_dir/env-config.sh"
+  chmod +x "$config_file" || {
+    echo "Error: Failed to make $config_file executable" >&2
+    exit 1
+  }
 
   # Generate YAML configuration file
-  cat > "$output_dir/env-config.yaml" << EOF
+  yaml_file="$output_dir/env-config.yaml"
+  echo "Creating YAML configuration: $yaml_file"
+  
+  cat > "$yaml_file" << EOF
 # Generated environment configuration - $(date)
 environment: $env_flag
 description: "$description"
@@ -38,5 +62,5 @@ components:
   fyn-frontend: $frontend_version
 EOF
 
-  echo "Configuration files generated in $output_dir/"
+  echo "Configuration files generated successfully."
 }
