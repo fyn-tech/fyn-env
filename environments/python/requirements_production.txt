@@ -41,3 +41,4 @@ typing_extensions==4.13.2
 urllib3==2.4.0
 virtualenv==20.30.0
 websocket-client==1.8.0
+-e "FIXME: fyn-schema"

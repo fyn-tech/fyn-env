@@ -1,8 +1,0 @@
-name: "production"
-description: "Production Environment"
-
-components:
-  fyn-schema: latest
-  fyn-api: latest
-  fyn-runner: latest
-  fyn-frontend: latest

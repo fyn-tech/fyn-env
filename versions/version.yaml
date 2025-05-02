@@ -1,0 +1,35 @@
+environments:
+  production:
+    description: "Production Environment"
+    components:
+      fyn-env: v0.0.0
+      fyn-schema: v0.0.0
+      fyn-api: v0.0.0
+      fyn-runner: v0.0.0
+      fyn-frontend: v0.0.0
+    python:
+      requirements: requirements_production.txt
+      virtual_env: venv_production
+
+  staging:
+    description: "Stage Environment"
+    components:
+      fyn-env: v0.0.0
+      fyn-schema: v0.0.0
+      fyn-api: v0.0.0
+      fyn-runner: v0.0.0
+      fyn-frontend: v0.0.0
+    requirements: requirements_production.txt
+    virtual_env: venv_staging
+
+  development:
+    description: "Development Environment"
+    components:
+      fyn-env: latest
+      fyn-schema: latest
+      fyn-api: latest
+      fyn-runner: latest
+      fyn-frontend: latest
+    python:
+      requirements: requirements_development.txt
+      virtual_env: venv_development
