@@ -1,6 +1,6 @@
 # This workflow automatically creates a semantic version tag when code is merged into the main branch. The tags will conform to the convention in https://semver.org/.
 
-name: Generate SemVer Tag
+name: Generate SemVer Tag (Shared)
 
 on:
   workflow_call: # Must be called by a workflow in each repository that wants to use it
