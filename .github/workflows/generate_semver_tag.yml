@@ -10,4 +10,4 @@ permissions:
 
 jobs:
   tag:
-    uses: fyn-tech/fyn-env/.github/workflows/generate-semver-tag-shared.yml@main
+    uses: fyn-tech/fyn-env/.github/workflows/generate_semver_tag_shared.yml@main
